@@ -1,0 +1,10 @@
+
+Tetris/Library/
+Tetris/Logs/
+Tetris/UserSettings/
+Tetris/obj/
+Tetris/Temp/
+Tetris/.vs/
+Tetris/*.csproj
+Tetris/*.sln
+Tetris/.vsconfig
