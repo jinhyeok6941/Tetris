@@ -28,7 +28,7 @@ public class Reserve : MonoBehaviour
     {
         time += Time.deltaTime;
         //print(currtime + "   " + checktime + "    " + time);
-        if (time / 10 >= checktime && currtime > 0.6f)
+        if (time / 10 >= checktime && currtime > 0.3f)
         {   
             currtime -= 0.2f;
             checktime++;

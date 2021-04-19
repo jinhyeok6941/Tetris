@@ -76,7 +76,8 @@ public class Player : MonoBehaviour
                 transform.position -= Vector3.down;
         }
         if (currtime < checktime) 
-        { 
+        {
+            print(currtime);
               transform.position += Vector3.down;
               checktime = 0;  
         }
