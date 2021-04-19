@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    float currtime = 1;      //1초 마다 한 칸씩 아래로 떨어지게
+    float currtime;      //1초 마다 한 칸씩 아래로 떨어지게
     float checktime;
     //float attacktime,checkattack;
     public static int height = 20;
     public static int width = 10;
     static int y;
-    int rand;  
+    int rand,checkinttime = 1;  
     private static Transform[,] grid = new Transform[width, height];
   
     public GameObject[] tetris;
+    public GameObject obstacle;
     GameObject reObj;
     Reserve re;
 
@@ -22,14 +23,30 @@ public class Player : MonoBehaviour
     {
         reObj = GameObject.Find("ReserveTetris");
         re = reObj.GetComponent<Reserve>();
-        //int rand = Random.Range(0,5);
-        //GameObject tetrisObject = Instantiate(tetris[rand]);
-        //tetrisObject.transform.position = new Vector3(4.25f, 15, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //if (currtime > re.currtime)
+        //{
+        //    AddObstacle();
+        //}
+        //if (re.time / 10 > checkinttime)
+        //{
+        //    print(re.time/10 + "    " + checkinttime);
+        //    AddObstacle();
+        //    checkinttime++;
+        //}
+        print(re.checktime);
+        currtime = re.currtime;
+        if(re.checktime == 3)
+        {
+            ResetTetris();
+            re.checktime = 0;
+        }
+        
+        //print(re.time);
     //    attacktime+= Time.deltaTime;
         checktime += Time.deltaTime;
         // 테트리스 객체 움직임 구현
@@ -69,6 +86,8 @@ public class Player : MonoBehaviour
               transform.position += Vector3.down;
               checktime = 0;  
         }
+        //10초마다 속도가 0.2초씩 더 빨라지게 만들기.
+        
         //if (attacktime / 100 > checkattack && currtime > 0.3f)    //테트리스가 생성될 때마다 델타타임이 초기화
         //{
         //    print("속도 증가");
@@ -88,11 +107,13 @@ public class Player : MonoBehaviour
     }
     void CreateTetris()
     {
-        GameObject tetrisObject = Instantiate(tetris[re.rand]);
-        re.SetOnTetris();  //rand 값이 새로 설정됨
-        tetrisObject.transform.position = new Vector3(4.25f, 15, 0);
+        if (!grid[5, 15])
+        {
+            GameObject tetrisObject = Instantiate(tetris[re.rand]);
+            re.SetOnTetris();  //rand 값이 새로 설정됨
+            tetrisObject.transform.position = new Vector3(4, 15, 0);
+         }
     }
-
     void AddtoGrid()
     {
         for (int i = 0; i < transform.childCount; i++)
@@ -166,5 +187,48 @@ public class Player : MonoBehaviour
                 grid[x, y] = null;
                }
             }
+        re.scoreCount++;
+    }
+
+    void AddObstacle()        //장애물 추가하기.
+    {
+        for (int y = height-2; y >= 0; y--)      //생성 전 한 칸씩 올리기.
+        {
+            for (int x = 0; x < width; x++)
+            {
+                if (grid[x, y])
+                {
+                    grid[x, y + 1] = grid[x, y];
+                    grid[x, y].gameObject.transform.position += Vector3.up;
+                    grid[x, y] = null;
+                }
+            }
+        }
+
+        int rand1 = Random.Range(0, 10);
+        for (int x = 0; x < width; x++)
+        {
+            //리스트 10 * 20개의 상자만들고
+            //호출 된 양만큼 생성하기.
+            if (x == rand1)
+                continue;
+            GameObject ost = Instantiate(obstacle);
+            ost.transform.position = new Vector3(x, 0, 0);
+            grid[x, 0] = ost.transform.GetChild(0);
+        }
+    }
+    void ResetTetris()
+    {
+        for (int y = height - 1; y > -1; y--)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                if (grid[x, y])
+                {
+                    Destroy(grid[x, y].gameObject);
+                    grid[x, y] = null;
+                }
+            }
+        }
     }
 }
