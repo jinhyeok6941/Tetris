@@ -25,7 +25,7 @@ public class ObjectMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             dir = new Vector3(1, 0, 0);
             transform.position += dir;
