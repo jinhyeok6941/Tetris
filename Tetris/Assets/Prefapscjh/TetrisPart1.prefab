@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 3881751620059052942}
   - component: {fileID: 3881751620059052943}
   - component: {fileID: 3881751620059053043}
+  - component: {fileID: 7063862705847167191}
   m_Layer: 0
   m_Name: TetrisPart1
   m_TagString: Untagged
@@ -254,8 +255,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -310,6 +310,19 @@ MonoBehaviour:
   - {fileID: 8472211452169841545, guid: 6ed82638263e69c48874fe5ba0b42dc8, type: 3}
   - {fileID: 0}
   - {fileID: 0}
+  obstacle: {fileID: 1353459563845833325, guid: 6feb4364143582541bd18ffd6737e617, type: 3}
+--- !u!114 &7063862705847167191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3881751620059052940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312a7d2479885ed45a727b60337aaad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3881751620335910289
 GameObject:
   m_ObjectHideFlags: 0

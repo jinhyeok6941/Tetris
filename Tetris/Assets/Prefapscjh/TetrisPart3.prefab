@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 6771046912090791611}
   - component: {fileID: 6771046912090791610}
   - component: {fileID: 6771046912090791622}
+  - component: {fileID: -6778929537248181416}
   m_Layer: 0
   m_Name: TetrisPart3
   m_TagString: Untagged
@@ -405,6 +406,19 @@ MonoBehaviour:
   - {fileID: 8472211452169841545, guid: 6ed82638263e69c48874fe5ba0b42dc8, type: 3}
   - {fileID: 0}
   - {fileID: 0}
+  obstacle: {fileID: 1353459563845833325, guid: 6feb4364143582541bd18ffd6737e617, type: 3}
+--- !u!114 &-6778929537248181416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6771046912090791609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312a7d2479885ed45a727b60337aaad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6771046912721335415
 GameObject:
   m_ObjectHideFlags: 0
