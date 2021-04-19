@@ -38,13 +38,7 @@ public class Player : MonoBehaviour
         //    AddObstacle();
         //    checkinttime++;
         //}
-        print(re.checktime);
         currtime = re.currtime;
-        if(re.checktime == 3)
-        {
-            ResetTetris();
-            re.checktime = 0;
-        }
         
         //print(re.time);
     //    attacktime+= Time.deltaTime;
