@@ -125,7 +125,7 @@ public class Player : MonoBehaviour
         {
             int positionX = Mathf.RoundToInt(transform.GetChild(i).position.x);
             int positionY = Mathf.RoundToInt(transform.GetChild(i).position.y);
-            if (positionX < 0 || positionX == width || positionY < 0 || positionY > height)
+            if (positionX < 0 || positionX >= width || positionY < 0 || positionY >= height)
             {
                 return false;
             }
