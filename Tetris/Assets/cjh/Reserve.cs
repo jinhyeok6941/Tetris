@@ -41,7 +41,7 @@ public class Reserve : MonoBehaviour
 
     public void SetOnTetris()
     {
-        rand = Random.Range(0, 5);
+        rand = Random.Range(0, 7);
         tetris[rand].SetActive(true);
     }
 
