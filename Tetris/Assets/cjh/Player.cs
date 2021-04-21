@@ -210,6 +210,7 @@ public class Player : MonoBehaviour
             GameObject ost = Instantiate(obstacle);
             ost.transform.position = new Vector3(x, 0, 0);
             grid[x, 0] = ost.transform.GetChild(0);
+            
         }
     }
     void ResetTetris()
