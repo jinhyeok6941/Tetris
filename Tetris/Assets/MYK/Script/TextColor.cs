@@ -14,7 +14,6 @@ public class TextColor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print("Ω√¿€");
     }
 
     // Update is called once per frame
@@ -25,7 +24,7 @@ public class TextColor : MonoBehaviour
             addcolor *= -1;
             i++;
         }
-        light += 0.01f;
+        light += 0.005f;
         i %= rgb.Length;
         rgb[i] += addcolor;
         text.color = new Color(rgb[0], rgb[1] ,rgb[2] , light); 
