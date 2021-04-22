@@ -7,30 +7,25 @@ public class TextColor : MonoBehaviour
 {
     public float [] rgb;
     public Text text;
-    float light = 1;
+    float light;
     int i = 0;
-    float addcolor = 0.1f;
+    public float addcolor = 0.01f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        print("½ÃÀÛ");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (rgb[i] >= 1)
+        if (rgb[i] >= 1 || rgb[i] <=0)
         {
-            addcolor = -0.1f;
+            addcolor *= -1;
             i++;
         }
-        else if (rgb[i] <= 0)
-        {
-            addcolor = 0.1f;
-            i++;
-        }
-
+        light += 0.01f;
         i %= rgb.Length;
         rgb[i] += addcolor;
         text.color = new Color(rgb[0], rgb[1] ,rgb[2] , light); 

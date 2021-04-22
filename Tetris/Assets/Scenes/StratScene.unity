@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 94686728}
   - component: {fileID: 94686727}
   m_Layer: 5
-  m_Name: Text (5)
+  m_Name: Text S
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1233487368}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -177,7 +177,8 @@ MonoBehaviour:
   - 1
   - 0
   - 1
-  text: {fileID: 1713234677}
+  text: {fileID: 94686728}
+  addcolor: 0.05
 --- !u!114 &94686728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -233,7 +234,7 @@ GameObject:
   - component: {fileID: 252273959}
   - component: {fileID: 252273958}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Text E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,7 +252,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1233487368}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -274,7 +275,8 @@ MonoBehaviour:
   - 0
   - 1
   - 0
-  text: {fileID: 1713234677}
+  text: {fileID: 252273959}
+  addcolor: 0.05
 --- !u!114 &252273959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +332,7 @@ GameObject:
   - component: {fileID: 363778584}
   - component: {fileID: 363778583}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Text T
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,7 +350,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1233487368}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -371,7 +373,8 @@ MonoBehaviour:
   - 1
   - 0
   - 1
-  text: {fileID: 1713234677}
+  text: {fileID: 363778584}
+  addcolor: 0.1
 --- !u!114 &363778584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,12 +731,12 @@ RectTransform:
   m_Children:
   - {fileID: 390163358}
   - {fileID: 1915691530}
+  - {fileID: 1713234676}
   - {fileID: 252273957}
   - {fileID: 363778582}
   - {fileID: 2118639980}
   - {fileID: 2066337955}
   - {fileID: 94686726}
-  - {fileID: 1713234676}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -943,7 +946,7 @@ GameObject:
   - component: {fileID: 1713234677}
   - component: {fileID: 1713234679}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Text T
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -961,11 +964,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1233487368}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: 129}
+  m_AnchoredPosition: {x: -75.5, y: 129}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1713234677
@@ -1027,6 +1030,7 @@ MonoBehaviour:
   - 0
   - 1
   text: {fileID: 1713234677}
+  addcolor: 0.05
 --- !u!1 &1915691529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,7 +1177,7 @@ GameObject:
   - component: {fileID: 2066337957}
   - component: {fileID: 2066337956}
   m_Layer: 5
-  m_Name: Text (4)
+  m_Name: Text I
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1191,7 +1195,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1233487368}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1214,7 +1218,8 @@ MonoBehaviour:
   - 1
   - 1
   - 0
-  text: {fileID: 1713234677}
+  text: {fileID: 2066337957}
+  addcolor: 0.1
 --- !u!114 &2066337957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,7 +1275,7 @@ GameObject:
   - component: {fileID: 2118639982}
   - component: {fileID: 2118639981}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: "Text \u042F"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1288,11 +1293,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1233487368}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 95.89996, y: 129}
+  m_AnchoredPosition: {x: 95.89996, y: 127.4}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2118639981
@@ -1311,7 +1316,8 @@ MonoBehaviour:
   - 1
   - 0
   - 1
-  text: {fileID: 1713234677}
+  text: {fileID: 2118639982}
+  addcolor: 0.12
 --- !u!114 &2118639982
 MonoBehaviour:
   m_ObjectHideFlags: 0
