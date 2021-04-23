@@ -72,6 +72,7 @@ public class Reserve : MonoBehaviour
     public void Retry()
     {
         GameOverBG over = retry.GetComponent<GameOverBG>();
+        gameObject.SetActive(false);
         retry.SetActive(true);
     }
 }

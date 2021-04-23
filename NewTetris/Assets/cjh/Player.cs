@@ -91,7 +91,6 @@ public class Player : MonoBehaviour
             }
             else
             {
-                print("GAME OVER");
                 re.Retry();
             }
     }
