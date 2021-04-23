@@ -1,13 +1,13 @@
 
-Tetris/Library/
-Tetris/Logs/
-Tetris/UserSettings/
-Tetris/obj/
-Tetris/Temp/
-Tetris/.vs/
-Tetris/*.csproj
-Tetris/*.sln
-Tetris/.vsconfig
+NewTetris/Library/
+NewTetris/Logs/
+NewTetris/UserSettings/
+NewTetris/obj/
+NewTetris/Temp/
+NewTetris/.vs/
+*.csproj
+*.sln
+NewTetris/.vsconfig
 NewTetris/Assets/Real Stars Skybox/StarSkybox04/CubemapStars.cubemap
 NewTetris/Assets/Real Stars Skybox/StarSkybox04Named/CubemapStarsNamed.cubemap
 NewTetris/Assets/Real Stars Skybox/StarSkybox04NamedConstell/CubemapStarsNamedConstellations.cubemap
