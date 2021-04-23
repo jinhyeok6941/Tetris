@@ -8,3 +8,6 @@ Tetris/.vs/
 Tetris/*.csproj
 Tetris/*.sln
 Tetris/.vsconfig
+NewTetris/Assets/Real Stars Skybox/StarSkybox04/CubemapStars.cubemap
+NewTetris/Assets/Real Stars Skybox/StarSkybox04Named/CubemapStarsNamed.cubemap
+NewTetris/Assets/Real Stars Skybox/StarSkybox04NamedConstell/CubemapStarsNamedConstellations.cubemap
