@@ -12,6 +12,6 @@ public class GameStart : MonoBehaviour
     }
     public void OnclickStart()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }
