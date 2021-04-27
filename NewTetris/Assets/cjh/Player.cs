@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     float currtime;      //1초 마다 한 칸씩 아래로 떨어지게
     float checktime;
-    public static int height = 60;
+    public static int height = 24;
     public static int width = 10;
     static int y;
     int rand, checkinttime = 1;
@@ -27,15 +27,15 @@ public class Player : MonoBehaviour
         gm = gmMg.GetComponent<GameManager>();
         reObj = GameObject.Find("ReserveTetris");
         re = reObj.GetComponent<Reserve>();
-        randY = Random.Range(1, re.checktime/3);          //1 ~ 3 개의 생성량 지정
+        randY = Random.Range(1, re.nowGrade/3);          //1 ~ 3 개의 생성량 지정
         this.enabled = true;
+        currtime = 1 - (SceneManager.GetActiveScene().buildIndex * 0.2f);
     }
 
     // Update is called once per frame
     void Update()
     {
         checktime += Time.deltaTime;        //떨어지는 속도 비교 체크용
-        currtime = re.currtime;             //시간에 따른 속도 변화량
         // 테트리스 객체 움직임 구현
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -82,7 +82,6 @@ public class Player : MonoBehaviour
 
         if (!MovingRange())      //테트리스 오브젝트가 이동 불가 상태일 때
         {
-            re.checktime++;
             SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_2);
             transform.position -= Vector3.down;
             re.SetOffTetris();
@@ -90,11 +89,11 @@ public class Player : MonoBehaviour
             CreateTetris();
             AddtoGrid();
             Check_Line();
-            int randob = Random.RandomRange(1, 16 - re.checktime);     //15단계 달성시 끝
+            int randob = Random.RandomRange(1, 16 - re.nowGrade);     //15단계 달성시 끝
             if(randob<4)
             AddObstacle();          //장애물 생성
-            
-            //StartCoroutine(GradeUp());        //GradeUp 조건 달성 시 레벨업 사운드 호출 후 씬 전환.
+            if(SceneManager.GetActiveScene().buildIndex * 3 == re.scoreCount/5)
+            StartCoroutine(GradeUp());        //GradeUp 조건 달성 시 레벨업 사운드 호출 후 씬 전환.
             
         }
     }
@@ -106,7 +105,7 @@ public class Player : MonoBehaviour
     }
         void CreateTetris()
     {
-        if (CheckWidth())
+        if (CheckWidth() || SceneManager.GetActiveScene().buildIndex * 3 == re.scoreCount / 5)
          {
             gm.tetrisIndex++;
             gm.tetris1[gm.tetrisIndex].SetActive(true);
