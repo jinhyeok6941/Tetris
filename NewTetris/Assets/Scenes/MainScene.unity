@@ -2092,7 +2092,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baabb5ba92eaa3547b754b6c5b726ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 669499218}
 --- !u!114 &669499216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2359,6 +2358,8 @@ MonoBehaviour:
   - {fileID: 3465852243469655829, guid: 888bf6f53ee72694b8ed9f86f4876ceb, type: 3}
   - {fileID: 9015307241239681200, guid: 1c8d9d14416345c4195fa4e8f92846d1, type: 3}
   - {fileID: 6211191093114041738, guid: abd2973c383fa294696c6023f335a342, type: 3}
+  tetris1: []
+  tetrisIndex: 0
 --- !u!4 &675955251
 Transform:
   m_ObjectHideFlags: 0

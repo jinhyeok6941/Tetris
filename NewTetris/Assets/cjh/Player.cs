@@ -5,24 +5,28 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     float currtime;      //1초 마다 한 칸씩 아래로 떨어지게
-    float checktime; 
-    public static int height = 24;
+    float checktime;
+    public static int height = 60;
     public static int width = 10;
     static int y;
     int rand, checkinttime = 1;
     private static Transform[,] grid = new Transform[width, height];
 
     public GameObject[] tetris;
-    GameObject reObj;
+    GameObject reObj, gmMg;
+    GameManager gm;
     Reserve re;
     int randY;       //장애물 생성되는 줄의 양
 
     // Start is called before the first frame update
     void Start()
     {
+        gmMg = GameObject.Find("GameManager");
+        gm = gmMg.GetComponent<GameManager>();
         reObj = GameObject.Find("ReserveTetris");
         re = reObj.GetComponent<Reserve>();
         randY = Random.Range(1, re.checktime/3);          //1 ~ 3 개의 생성량 지정
+        this.enabled = true;
     }
 
     // Update is called once per frame
@@ -33,6 +37,7 @@ public class Player : MonoBehaviour
         // 테트리스 객체 움직임 구현
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_1);
             transform.position += Vector3.left;
             if (!MovingRange())
                 transform.position -= Vector3.left;
@@ -41,12 +46,14 @@ public class Player : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             transform.position += Vector3.right;
+            SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_1);
             if (!MovingRange())
                 transform.position -= Vector3.right;
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             transform.position += Vector3.down;
+            SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_1);
             if (!MovingRange())
                 transform.position -= Vector3.down;
         }
@@ -54,7 +61,10 @@ public class Player : MonoBehaviour
         {
             transform.Rotate(0, 0, 90);
             if (!MovingRange())
+            {
+                print("회전불가");
                 transform.Rotate(0, 0, -90);
+            }
         }
         else if (Input.GetKey(KeyCode.Z))
         {
@@ -72,8 +82,8 @@ public class Player : MonoBehaviour
         {
             transform.position -= Vector3.down;
             re.SetOffTetris();
-            CreateTetris();
             this.enabled = false;    //스크립트 비활성화
+            CreateTetris();
             AddtoGrid();
             Check_Line();
             int randob = Random.RandomRange(1, 16 - re.checktime);     //15단계 달성시 끝
@@ -83,16 +93,22 @@ public class Player : MonoBehaviour
     }
     void CreateTetris()
     {
-            if (!grid[1,18] && !grid[4, 18] && !grid[7, 18] && !grid[9, 18])
-            {
-                GameObject tetrisObject = Instantiate(tetris[re.rand]);
-                re.SetOnTetris();  //rand 값이 새로 설정됨
-                tetrisObject.transform.position = new Vector3(4, 18, 0);
-            }
-            else
-            {
+        if (CheckWidth())
+         {
+            gm.tetrisIndex++;
+            gm.tetris1[gm.tetrisIndex].SetActive(true);
+         }
+         else
                 re.Retry();
-            }
+    }
+    bool CheckWidth()
+    {
+        for(int i = 0; i < width; i++)
+        {
+            if (grid[i, 18])
+                return false;
+        }
+        return true;
     }
     void AddtoGrid()
     {
@@ -114,12 +130,11 @@ public class Player : MonoBehaviour
             int positionY = Mathf.RoundToInt(transform.GetChild(i).position.y);
             if (positionX < 0 || positionX >= width || positionY < 0 || positionY >= height)
             {
+                print("이동 범위 : " + positionX + "   " + positionY);
                 return false;
             }
             if (grid[positionX, positionY])
-            {
                 return false;
-            }
         }
         return true;
     }
@@ -139,7 +154,7 @@ public class Player : MonoBehaviour
                  if (x == width)
                  {
                     Destroy_Line(y);
-                    Drop_Line(y+1);   //지워진 줄 y축 위의 y값 넘기기.
+                    Drop_Line(y+1);      //지워진 줄 y축 위의 y값 넘기기.
                     re.maxY--;           //낮아진 위치만큼 Y의 최대 탐색 범위 마이너스. 
                  }
                 y--;
@@ -174,8 +189,10 @@ public class Player : MonoBehaviour
                     re.creatOst.RemoveAt(re.obIndex);
                 }
                 else
-                    Destroy(grid[x, y].gameObject);                //테트리스 오브젝트일 경우 삭제.
+                    grid[x, y].gameObject.SetActive(false);
+    
                     grid[x, y] = null;                             //비활성화 또는 삭제 후 grid값들 null처리.
+
               }
             }
         re.scoreCount+=5;

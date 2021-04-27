@@ -108,8 +108,9 @@ GameObject:
   - component: {fileID: 3465852243469655831}
   - component: {fileID: 3465852243469655830}
   - component: {fileID: 3465852243469655914}
-  - component: {fileID: 8061182004729274935}
   - component: {fileID: -1419751041789133501}
+  - component: {fileID: -8242930446185968592}
+  - component: {fileID: 138285816276976015}
   m_Layer: 0
   m_Name: TetrisPart5
   m_TagString: Untagged
@@ -125,7 +126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3465852243469655829}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: -0.5, z: 0}
+  m_LocalPosition: {x: 4, y: 18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3465852244149033225}
@@ -217,18 +218,6 @@ MonoBehaviour:
   - {fileID: 3465852243469655829}
   - {fileID: 9015307241239681200, guid: 1c8d9d14416345c4195fa4e8f92846d1, type: 3}
   - {fileID: 6211191093114041738, guid: abd2973c383fa294696c6023f335a342, type: 3}
---- !u!114 &8061182004729274935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3465852243469655829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 312a7d2479885ed45a727b60337aaad9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &-1419751041789133501
 AudioSource:
   m_ObjectHideFlags: 0
@@ -239,7 +228,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5726b346f85142647bd3b62ef41c30fe, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -325,6 +314,40 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-8242930446185968592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3465852243469655829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9779951d08eaf7498e6ff14cd1366ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &138285816276976015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3465852243469655829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb47d0a0c2708144883b773b483f4fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmAudio: {fileID: -1419751041789133501}
+  eftAudio: {fileID: -1419751041789133501}
+  bgms:
+  - {fileID: 8300000, guid: 5726b346f85142647bd3b62ef41c30fe, type: 3}
+  - {fileID: 8300000, guid: f63bc3a7b8a858242a644a4333ca46e1, type: 3}
+  - {fileID: 8300000, guid: 67b42ce8f780b6549a666bc68e324ae7, type: 3}
+  efts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &3465852244149033224
 GameObject:
   m_ObjectHideFlags: 0
