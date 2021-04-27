@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Reserve : MonoBehaviour
 {
     public float time,currtime = 1;
-    public int checktime;
+    public int nowGrade;      
     public Text score;
     public Text grade;
     public Text textTime;
@@ -33,6 +34,8 @@ public class Reserve : MonoBehaviour
     {
         SetOnTetris();
         CreateObstacle();
+        nowGrade = SceneManager.GetActiveScene().buildIndex;  //씬의 인덱스 값 받기.
+        grade.text = "Grade : " + nowGrade.ToString();
     }
 
     // Update is called once per frame
@@ -40,19 +43,17 @@ public class Reserve : MonoBehaviour
     {
         time += Time.deltaTime;
         textTime.text = "Time : " + ((int)time).ToString();
-        if (scoreCount / 15 > checktime)                      //스코어 25점당 GRADE 단계 업 및 속도 증가
-        {
-            print("grade Up  " + checktime);
-            currtime -= 0.1f;
-            checktime++;
-            //else if (checktime == 3)
-            //    SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.BGM_6);
-        }
-
-        print(checktime);
-            grade.text = "Grade : " + checktime.ToString();
+        //if (scoreCount / 15 > checktime)                      //스코어 25점당 GRADE 단계 업 및 속도 증가
+        //{
+        //    print("grade Up  " + checktime);
+        //    currtime -= 0.1f;
+        //    checktime++;
+        //    //else if (checktime == 3)
+        //    //    SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.BGM_6);
+        //}
         score.text = "Score : " + scoreCount.ToString();
         line.text = "Line : " + (scoreCount / 5).ToString();
+        print(ostCnt);
     }
 
     public void SetOnTetris()
