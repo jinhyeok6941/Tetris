@@ -17,7 +17,7 @@ public class Reserve : MonoBehaviour
     public GameObject obstacleFactory;
     public List<GameObject> creatOst = new List<GameObject>();
     public List<GameObject> destOst = new List<GameObject>();
-    int ostCnt = 90;
+    int ostCnt = 191;
     public int obIndex = 0;         //장애물 참조 인덱스
     public int maxY;        //테트리스 좌표의 최대 높이 값
     public GameObject retry;
