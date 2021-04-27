@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
+            SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_1);
             transform.Rotate(0, 0, 90);
             if (!MovingRange())
             {
@@ -80,6 +81,7 @@ public class Player : MonoBehaviour
 
         if (!MovingRange())      //테트리스 오브젝트가 이동 불가 상태일 때
         {
+            SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_2);
             transform.position -= Vector3.down;
             re.SetOffTetris();
             this.enabled = false;    //스크립트 비활성화
@@ -196,6 +198,7 @@ public class Player : MonoBehaviour
               }
             }
         re.scoreCount+=5;
+        SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_3);
     }
 
     void AddObstacle()        //장애물 추가하기.
