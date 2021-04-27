@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -11,14 +12,15 @@ public class SoundManager : MonoBehaviour
     {
         BGM_1,
         BGM_2,
-        BGM_3
+        BGM_3,
+        BGM_4
     }
 
     public enum EFT_TYPE
     {
-        EFT_1,
-        EFT_2,
-        EFT_3
+        BGM_4,
+        BGM_5,
+        BGM_6
     }
 
     //BGM 담당 AudioSource
@@ -29,11 +31,15 @@ public class SoundManager : MonoBehaviour
     //bgm 파일
     public AudioClip[] bgms;
     //eft 파일
-    public AudioClip[] efts;
+    public AudioClip[] gradebgm;
 
     void Start()
     {
         instance = this;
+        print("ddd : " + (SceneManager.GetActiveScene().buildIndex - 1));
+        int index = SceneManager.GetActiveScene().buildIndex - 1;
+        eftAudio.clip = gradebgm[index];  //테트리스 단계별 배경 음악.
+        eftAudio.Play();
     }
 
     // Update is called once per frame
@@ -48,10 +54,4 @@ public class SoundManager : MonoBehaviour
         bgmAudio.Play();
     }
 
-    public void PlayEFT(EFT_TYPE type)
-    {
-        eftAudio.clip = efts[(int)type];
-        eftAudio.Play();
-        eftAudio.PlayOneShot(efts[(int)type]); //효과음 동시 실행 가능.다음 효과음이 실행되도 끈김없이 실행됨.
-    }
 }

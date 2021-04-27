@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     private static Transform[,] grid = new Transform[width, height];
 
     public GameObject[] tetris;
+    public GameObject tetrisEffectFactory;
     GameObject reObj, gmMg;
     GameManager gm;
     Reserve re;
@@ -63,7 +65,6 @@ public class Player : MonoBehaviour
             transform.Rotate(0, 0, 90);
             if (!MovingRange())
             {
-                print("회전불가");
                 transform.Rotate(0, 0, -90);
             }
         }
@@ -81,6 +82,7 @@ public class Player : MonoBehaviour
 
         if (!MovingRange())      //테트리스 오브젝트가 이동 불가 상태일 때
         {
+            re.checktime++;
             SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_2);
             transform.position -= Vector3.down;
             re.SetOffTetris();
@@ -91,9 +93,18 @@ public class Player : MonoBehaviour
             int randob = Random.RandomRange(1, 16 - re.checktime);     //15단계 달성시 끝
             if(randob<4)
             AddObstacle();          //장애물 생성
+            
+            //StartCoroutine(GradeUp());        //GradeUp 조건 달성 시 레벨업 사운드 호출 후 씬 전환.
+            
         }
     }
-    void CreateTetris()
+    IEnumerator GradeUp()
+    {
+        SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_4);
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+    }
+        void CreateTetris()
     {
         if (CheckWidth())
          {
@@ -132,7 +143,6 @@ public class Player : MonoBehaviour
             int positionY = Mathf.RoundToInt(transform.GetChild(i).position.y);
             if (positionX < 0 || positionX >= width || positionY < 0 || positionY >= height)
             {
-                print("이동 범위 : " + positionX + "   " + positionY);
                 return false;
             }
             if (grid[positionX, positionY])
@@ -192,9 +202,13 @@ public class Player : MonoBehaviour
                 }
                 else
                     grid[x, y].gameObject.SetActive(false);
-    
-                    grid[x, y] = null;                             //비활성화 또는 삭제 후 grid값들 null처리.
 
+                GameObject tetrisEffect = Instantiate(tetrisEffectFactory);
+                tetrisEffect.transform.position = grid[x, y].gameObject.transform.position;
+                ParticleSystem ps = tetrisEffect.GetComponent<ParticleSystem>();
+                ps.Play();
+       
+                grid[x, y] = null;                             //비활성화 또는 삭제 후 grid값들 null처리.     
               }
             }
         re.scoreCount+=5;

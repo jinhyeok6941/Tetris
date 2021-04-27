@@ -21,6 +21,7 @@ public class Reserve : MonoBehaviour
     public int obIndex = 0;         //장애물 참조 인덱스
     public int maxY;        //테트리스 좌표의 최대 높이 값
     public GameObject retry;
+    int gradeindex;
     //public static Reserve re;
     // Start is called before the first frame update
     //private void Awake()
@@ -39,12 +40,17 @@ public class Reserve : MonoBehaviour
     {
         time += Time.deltaTime;
         textTime.text = "Time : " + ((int)time).ToString();
-        if (scoreCount/15 > checktime)                      //스코어 25점당 GRADE 단계 업 및 속도 증가
-        {   
+        if (scoreCount / 15 > checktime)                      //스코어 25점당 GRADE 단계 업 및 속도 증가
+        {
+            print("grade Up  " + checktime);
             currtime -= 0.1f;
             checktime++;
-            grade.text = "Grade : " + checktime.ToString();
+            //else if (checktime == 3)
+            //    SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.BGM_6);
         }
+
+        print(checktime);
+            grade.text = "Grade : " + checktime.ToString();
         score.text = "Score : " + scoreCount.ToString();
         line.text = "Line : " + (scoreCount / 5).ToString();
     }

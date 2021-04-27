@@ -123,6 +123,7 @@ MonoBehaviour:
   - {fileID: 3465852243469655829, guid: 888bf6f53ee72694b8ed9f86f4876ceb, type: 3}
   - {fileID: 9015307241239681200, guid: 1c8d9d14416345c4195fa4e8f92846d1, type: 3}
   - {fileID: 6211191093114041738}
+  tetrisEffectFactory: {fileID: 100006, guid: 8a4aceaf2957c044480166b429f4c7d0, type: 3}
 --- !u!82 &3346947504543664855
 AudioSource:
   m_ObjectHideFlags: 0
@@ -249,10 +250,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5726b346f85142647bd3b62ef41c30fe, type: 3}
   - {fileID: 8300000, guid: f63bc3a7b8a858242a644a4333ca46e1, type: 3}
   - {fileID: 8300000, guid: 67b42ce8f780b6549a666bc68e324ae7, type: 3}
-  efts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: d865f31612ba06444bb612e9b3e59dd5, type: 3}
+  gradebgm: []
 --- !u!1 &6211191093762858820
 GameObject:
   m_ObjectHideFlags: 0
