@@ -52,7 +52,7 @@ public class Reserve : MonoBehaviour
 
     public void SetOnTetris()
     {
-        index = GameManager.gminstance.Reserve[GameManager.gminstance.tetrisIndex + ABCD];
+        index = GameManager.gminstance.Reserve[GameManager.gminstance.tetrisIndex + 1];
         for(int i = 0; i < 7; i++)
         {
             if (tetris[i].active)
