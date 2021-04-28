@@ -2360,6 +2360,9 @@ MonoBehaviour:
   - {fileID: 6211191093114041738, guid: abd2973c383fa294696c6023f335a342, type: 3}
   tetris1: []
   tetrisIndex: 0
+  tetrisEffectFactory: {fileID: 100006, guid: 8a4aceaf2957c044480166b429f4c7d0, type: 3}
+  tetrisEffectArray: []
+  Reserve: 
 --- !u!4 &675955251
 Transform:
   m_ObjectHideFlags: 0
@@ -4928,7 +4931,9 @@ MonoBehaviour:
   obIndex: 0
   maxY: 0
   retry: {fileID: 669499213}
+  reserveIndex: 0
   rand: 0
+  ABCD: 0
 --- !u!114 &1690879836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4942,11 +4947,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmAudio: {fileID: 1690879840}
+  eftAudio: {fileID: 0}
   bgms:
   - {fileID: 8300000, guid: 5726b346f85142647bd3b62ef41c30fe, type: 3}
   - {fileID: 8300000, guid: f63bc3a7b8a858242a644a4333ca46e1, type: 3}
   - {fileID: 8300000, guid: 67b42ce8f780b6549a666bc68e324ae7, type: 3}
   - {fileID: 8300000, guid: d865f31612ba06444bb612e9b3e59dd5, type: 3}
+  gradebgm: []
 --- !u!4 &1690879839 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5566153324721382393, guid: b8a92564962efd64cafdcf6bcf9bb5cd, type: 3}
