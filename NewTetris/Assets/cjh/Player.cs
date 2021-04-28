@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     private static Transform[,] grid = new Transform[width, height];
 
     public GameObject[] tetris;
-    public GameObject tetrisEffectFactory;
     GameObject reObj, gmMg;
     GameManager gm;
     Reserve re;
@@ -84,7 +83,6 @@ public class Player : MonoBehaviour
         {
             SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_2);
             transform.position -= Vector3.down;
-            re.SetOffTetris();
             this.enabled = false;    //스크립트 비활성화
             CreateTetris();
             AddtoGrid();
@@ -103,13 +101,14 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
-        void CreateTetris()
+    void CreateTetris()
     {
         if (CheckWidth())
          {
             gm.tetrisIndex++;
             gm.tetris1[gm.tetrisIndex].SetActive(true);
-         }
+            re.SetOnTetris();
+        }
          else
                 re.Retry();
     }
@@ -202,11 +201,10 @@ public class Player : MonoBehaviour
                 else
                     grid[x, y].gameObject.SetActive(false);
 
-                GameObject tetrisEffect = Instantiate(tetrisEffectFactory);
-                tetrisEffect.transform.position = grid[x, y].gameObject.transform.position;
-                ParticleSystem ps = tetrisEffect.GetComponent<ParticleSystem>();
+                gm.tetrisEffectArray[x].transform.position = grid[x, y].gameObject.transform.position;
+                ParticleSystem ps = gm.tetrisEffectArray[x].GetComponent<ParticleSystem>();
                 ps.Play();
-       
+
                 grid[x, y] = null;                             //비활성화 또는 삭제 후 grid값들 null처리.     
               }
             }

@@ -22,6 +22,7 @@ public class Reserve : MonoBehaviour
     public int obIndex = 0;         //장애물 참조 인덱스
     public int maxY;        //테트리스 좌표의 최대 높이 값
     public GameObject retry;
+    public int reserveIndex;
     int gradeindex;
     //public static Reserve re;
     // Start is called before the first frame update
@@ -30,6 +31,8 @@ public class Reserve : MonoBehaviour
     //    re = this;
     //}
     public int rand;
+    public int ABCD;
+    int index;
     void Start()
     {
         SetOnTetris();
@@ -43,28 +46,19 @@ public class Reserve : MonoBehaviour
     {
         time += Time.deltaTime;
         textTime.text = "Time : " + ((int)time).ToString();
-        //if (scoreCount / 15 > checktime)                      //스코어 25점당 GRADE 단계 업 및 속도 증가
-        //{
-        //    print("grade Up  " + checktime);
-        //    currtime -= 0.1f;
-        //    checktime++;
-        //    //else if (checktime == 3)
-        //    //    SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.BGM_6);
-        //}
         score.text = "Score : " + scoreCount.ToString();
         line.text = "Line : " + (scoreCount / 5).ToString();
-        print(ostCnt);
     }
 
     public void SetOnTetris()
     {
-        rand = Random.Range(0, 7);
-        tetris[rand].SetActive(true);
-    }
-
-    public void SetOffTetris()
-    {
-        tetris[rand].SetActive(false);
+        index = GameManager.gminstance.Reserve[GameManager.gminstance.tetrisIndex + ABCD];
+        for(int i = 0; i < 7; i++)
+        {
+            if (tetris[i].active)
+                tetris[i].SetActive(false);
+        }
+        tetris[index].SetActive(true);
     }
 
     void CreateObstacle()

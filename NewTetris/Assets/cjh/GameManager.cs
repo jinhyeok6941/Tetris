@@ -9,12 +9,20 @@ public class GameManager : MonoBehaviour
     public List<GameObject> tetris1 = new List<GameObject>();
     public int tetrisIndex = 0;
     public static GameManager gminstance;
+
+    public GameObject tetrisEffectFactory;
+    GameObject tetrisEffect;
+    public List<GameObject> tetrisEffectArray = new List<GameObject>();
+
+    public List<int> Reserve = new List<int>();
+
     // Start is called before the first frame update
     void Start()
     {
+        gminstance = this;
         CreateTetris1();
+        CreateTetrisEffect();
         tetris1[tetrisIndex].SetActive(true);
-        //tetris1[tetrisIndex].transform.position = new Vector3(4, 18, 0);
     }
 
     void CreateTetris1()                 //테트리스 1 50개 생성
@@ -25,6 +33,16 @@ public class GameManager : MonoBehaviour
             tetrisObject = Instantiate(tetris[rand]);
             tetrisObject.SetActive(false);
             tetris1.Add(tetrisObject);
+            Reserve.Add(rand);
         }    
+    }
+
+    void CreateTetrisEffect()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            tetrisEffect = Instantiate(tetrisEffectFactory);
+            tetrisEffectArray.Add(tetrisEffect);
+        }
     }
 }
