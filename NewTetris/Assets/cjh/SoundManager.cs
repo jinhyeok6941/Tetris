@@ -12,8 +12,7 @@ public class SoundManager : MonoBehaviour
     {
         BGM_1,
         BGM_2,
-        BGM_3,
-        BGM_4
+        BGM_3
     }
 
     //BGM ´ã´ç AudioSource
