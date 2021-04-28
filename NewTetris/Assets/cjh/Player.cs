@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
             int randob = Random.RandomRange(1, 16 - re.nowGrade);     //15단계 달성시 끝
             if(randob<4)
             AddObstacle();          //장애물 생성
-            if(SceneManager.GetActiveScene().buildIndex * 3 == re.scoreCount/5)
+            if(SceneManager.GetActiveScene().buildIndex * 3 <= re.scoreCount/5)
             StartCoroutine(GradeUp());        //GradeUp 조건 달성 시 레벨업 사운드 호출 후 씬 전환.
             
         }
