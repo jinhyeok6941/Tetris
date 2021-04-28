@@ -15,19 +15,34 @@ public class SoundManager : MonoBehaviour
         BGM_3,
         BGM_4
     }
-    private void Start()
+
+    public enum EFT_TYPE
     {
-        instance = this;
+        BGM_4,
+        BGM_5,
+        BGM_6
     }
 
     //BGM 담당 AudioSource
     public AudioSource bgmAudio;
     //EFT 당담 AudioSource
-
+    public AudioSource eftAudio;
 
     //bgm 파일
     public AudioClip[] bgms;
     //eft 파일
+    public AudioClip[] gradebgm;
+
+    void Start()
+    {
+       
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void PlayBGM(BGM_TYPE type)
     {
