@@ -346,7 +346,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f63bc3a7b8a858242a644a4333ca46e1, type: 3}
   - {fileID: 8300000, guid: 67b42ce8f780b6549a666bc68e324ae7, type: 3}
   - {fileID: 8300000, guid: d865f31612ba06444bb612e9b3e59dd5, type: 3}
-  gradebgm: []
+  gradebgm:
+  - {fileID: 8300000, guid: 0b1e03b9ad8f1964d9f3a370535e4373, type: 3}
+  - {fileID: 8300000, guid: 842edddcb84f1d7468b3bee0ff964933, type: 3}
+  - {fileID: 8300000, guid: ffcb5ba58db8660468fbb2ac9b42d989, type: 3}
 --- !u!1 &8803148370245897547
 GameObject:
   m_ObjectHideFlags: 0
