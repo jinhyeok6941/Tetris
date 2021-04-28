@@ -37,7 +37,6 @@ public class SoundManager : MonoBehaviour
     {
         instance = this;
         int index = SceneManager.GetActiveScene().buildIndex - 1;
-        print("ddd : " + index);
         eftAudio.clip = gradebgm[index];  //테트리스 단계별 배경 음악.
         eftAudio.Play();
     }
