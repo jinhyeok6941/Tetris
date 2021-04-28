@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
         re = reObj.GetComponent<Reserve>();
         randY = Random.Range(1, re.nowGrade/3);          //1 ~ 3 개의 생성량 지정
         this.enabled = true;
-        currtime = 1 - (SceneManager.GetActiveScene().buildIndex * 0.2f);
+        currtime = 1 - (SceneManager.GetActiveScene().buildIndex * 0.1f);
     }
 
     // Update is called once per frame
@@ -84,32 +84,35 @@ public class Player : MonoBehaviour
             SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_2);
             transform.position -= Vector3.down;
             this.enabled = false;    //스크립트 비활성화
-            CreateTetris();
             AddtoGrid();
             Check_Line();
-            int randob = Random.RandomRange(1, 16 - re.nowGrade);     //15단계 달성시 끝
-            if(randob<4)
-            AddObstacle();          //장애물 생성
             if(SceneManager.GetActiveScene().buildIndex * 3 <= re.scoreCount/5)
             StartCoroutine(GradeUp());        //GradeUp 조건 달성 시 레벨업 사운드 호출 후 씬 전환.
+            CreateTetris();
+            int randob = Random.RandomRange(1, 14 - re.nowGrade);     //15단계 달성시 끝
+            if(randob<4)
+            AddObstacle();          //장애물 생성
             
         }
     }
     IEnumerator GradeUp()
     {
-        SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_4);
+        GameManager.gminstance.gameover = false;
+        BGMManager.instance.PlayBGM(BGMManager.BGM_TYPE.BGM_7);
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
     void CreateTetris()
     {
-        if (CheckWidth())
-         {
+        if (CheckWidth() && GameManager.gminstance.gameover)
+        {
             gm.tetrisIndex++;
             gm.tetris1[gm.tetrisIndex].SetActive(true);
             re.SetOnTetris();
         }
-         else
+        else if (!GameManager.gminstance.gameover)
+            print("Grade UP");
+        else
                 re.Retry();
     }
     bool CheckWidth()

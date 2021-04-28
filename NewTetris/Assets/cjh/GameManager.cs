@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class GameManager : MonoBehaviour
     public List<GameObject> tetrisEffectArray = new List<GameObject>();
 
     public List<int> Reserve = new List<int>();
+    public Text gradeUp;
+    public bool gameover = true;
+    public string [] gradeText;
+    int gradeTextIndex = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +29,30 @@ public class GameManager : MonoBehaviour
         CreateTetrisEffect();
         tetris1[tetrisIndex].SetActive(true);
     }
+    private void Update()
+    {
+        if (!gameover && gradeTextIndex < gradeText.Length)
+        {
+            StartCoroutine(GradeUp());
+        }  
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+    IEnumerator GradeUp()
+    {
+        while (gradeTextIndex < gradeText.Length)
+        {
+            gradeUp.text += gradeText[gradeTextIndex];
+            gradeTextIndex++;
+            yield return new WaitForSeconds(3);
+        }
+    }
 
     void CreateTetris1()                 //테트리스 1 50개 생성
     {
-        for(int i=0;i<100;i++)
+        for(int i=0;i<200;i++)
         {
             int rand = Random.Range(0, 7);
             tetrisObject = Instantiate(tetris[rand]);

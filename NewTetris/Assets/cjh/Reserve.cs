@@ -12,6 +12,7 @@ public class Reserve : MonoBehaviour
     public Text grade;
     public Text textTime;
     public Text line;
+    public Text bestScore;
     public int scoreCount = 0;
     public GameObject [] tetris;    //예약 테트리스 모음
 
@@ -24,6 +25,8 @@ public class Reserve : MonoBehaviour
     public GameObject retry;
     public int reserveIndex;
     int gradeindex;
+    int compareScore;
+    
     //public static Reserve re;
     // Start is called before the first frame update
     //private void Awake()
@@ -35,6 +38,8 @@ public class Reserve : MonoBehaviour
     int index;
     void Start()
     {
+        compareScore = PlayerPrefs.GetInt("BS");
+        bestScore.text = "SCOЯE : " + compareScore.ToString();
         SetOnTetris();
         CreateObstacle();
         nowGrade = SceneManager.GetActiveScene().buildIndex;  //씬의 인덱스 값 받기.
@@ -45,14 +50,21 @@ public class Reserve : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        textTime.text = "Time : " + ((int)time).ToString();
-        score.text = "Score : " + scoreCount.ToString();
-        line.text = "Line : " + (scoreCount / 5).ToString();
+        textTime.text = "TIME : " + ((int)time).ToString();
+        score.text = "SCOЯE : " + scoreCount.ToString();
+        line.text = "LINE : " + (scoreCount / 5).ToString();
+        if (compareScore <= scoreCount)
+        {
+            compareScore = scoreCount;
+            PlayerPrefs.SetInt("BS", compareScore);
+            bestScore.text = "SCOЯE : " + compareScore.ToString(); 
+        }
+
     }
 
     public void SetOnTetris()
     {
-        index = GameManager.gminstance.Reserve[GameManager.gminstance.tetrisIndex + ABCD];
+        index = GameManager.gminstance.Reserve[GameManager.gminstance.tetrisIndex + 1];
         for(int i = 0; i < 7; i++)
         {
             if (tetris[i].active)
