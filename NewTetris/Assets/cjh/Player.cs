@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
         re = reObj.GetComponent<Reserve>();
         randY = Random.Range(1, re.nowGrade/3);          //1 ~ 3 개의 생성량 지정
         this.enabled = true;
-        currtime = 1 - (SceneManager.GetActiveScene().buildIndex * 0.1f);
+        currtime = 1 - (SceneManager.GetActiveScene().buildIndex * 0.2f);
     }
 
     // Update is called once per frame
