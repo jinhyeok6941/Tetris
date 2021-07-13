@@ -41,7 +41,7 @@ public class Reserve : MonoBehaviour
         compareScore = PlayerPrefs.GetInt("BS");
         bestScore.text = "SCO¬ÁE : " + compareScore.ToString();
         SetOnTetris();
-        CreateObstacle();
+        //CreateObstacle();
         nowGrade = SceneManager.GetActiveScene().buildIndex;  //¾ÀÀÇ ÀÎµ¦½º °ª ¹Þ±â.
         grade.text = "Grade : " + nowGrade.ToString();
     }

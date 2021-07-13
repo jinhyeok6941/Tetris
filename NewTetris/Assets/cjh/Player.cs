@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
         }
         if (currtime < checktime)
         { 
-              transform.position += Vector3.down;
+              //transform.position += Vector3.down;
               checktime = 0;  
         }
 
@@ -88,10 +88,10 @@ public class Player : MonoBehaviour
             Check_Line();
             if(SceneManager.GetActiveScene().buildIndex * 3 <= re.scoreCount/5)
             StartCoroutine(GradeUp());        //GradeUp 조건 달성 시 레벨업 사운드 호출 후 씬 전환.
-            CreateTetris();
+            //CreateTetris();
             int randob = Random.RandomRange(1, 14 - re.nowGrade);     //15단계 달성시 끝
-            if(randob<4)
-            AddObstacle();          //장애물 생성
+            //if(randob<4)
+            //AddObstacle();          //장애물 생성
             
         }
     }

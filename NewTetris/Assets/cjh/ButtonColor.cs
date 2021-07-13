@@ -28,6 +28,7 @@ public class ButtonColor : MonoBehaviour
         i %= rgb.Length;
         rgb[i] += addcolor;
         btn.color = new Color(rgb[0], rgb[1], rgb[2], light);
+        
     }
 
     public void OnClickExit()

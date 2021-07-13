@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     void CreateTetris1()                 //테트리스 1 50개 생성
     {
-        for(int i=0;i<200;i++)
+        for(int i=0;i<10;i++)
         {
             int rand = Random.Range(0, 7);
             tetrisObject = Instantiate(tetris[rand]);
